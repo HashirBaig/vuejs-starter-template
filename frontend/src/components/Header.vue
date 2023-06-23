@@ -1,7 +1,6 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { useStore } from 'vuex';
-// import Sidebar from './Sidebar.vue';
 import Menu from "./Menu/Menu.vue"
 
 const store = useStore()
@@ -67,7 +66,6 @@ const handleLogout = () => {
             <i class="fas fa-power-off cursor-pointer header-icon"></i>
         </div>
     </header>
-    <!-- <Sidebar /> -->
     <Menu />
 </template>
 
