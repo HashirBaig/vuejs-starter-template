@@ -1,0 +1,68 @@
+.v-sidebar-menu {
+    display: block;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    padding: 2rem 0.9rem;
+    height: auto;
+    background-color: white;
+    margin-left: 1.2rem;
+    margin-right: 1.2rem;
+    margin-top: 5rem;
+    margin-bottom: 1.2rem;
+    border: 3px solid white;
+    border-radius: 20px;
+    transition: width 0.3s ease;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 4px 9px, rgba(0, 0, 0, 0.24) 0px 4px 9px;
+    white-space: nowrap;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.vsm--scroll-bar {
+    display: none;
+}
+
+.v-sidebar-menu .vsm--icon {
+    color: $secondary_color;
+    margin: 0 10px;
+}
+
+.v-sidebar-menu .vsm--item {
+    background-color: rgba(128, 0, 128, 0.090);
+    margin: 0.5rem 0;
+    border-radius: 4px;
+}
+
+.v-sidebar-menu .vsm--link_hover {
+    background-color: rgba(128, 0, 128, 0.090);
+    border-radius: 4px;
+}
+
+.v-sidebar-menu .vsm--link_active {
+    background-color: rgba(128, 0, 128, 0.150);
+    border-radius: 4px;
+}
+
+.v-sidebar-menu .vsm--title {
+    color: $purple_color;
+}
+
+.v-sidebar-menu .vsm--header {
+    color: $purple_dark_color;
+    font-weight: 800;
+}
+
+.v-sidebar-menu .vsm--link_level-1 .vsm--icon {
+    background-color: white;
+    color: $purple_color;
+}
+
+.v-sidebar-menu .vsm--link_level-1.vsm--link_exact-active,
+.v-sidebar-menu .vsm--link_level-1.vsm--link_active {
+    box-shadow: 0px 0px 0px 0px $purple_color inset;
+    -webkit-box-shadow: 0px 0px 0px 0px $purple_color inset;
+}
+
+.v-sidebar-menu .vsm--arrow {
+    margin: 0 15px;
+}

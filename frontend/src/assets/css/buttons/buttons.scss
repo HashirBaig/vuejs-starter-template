@@ -1,0 +1,8 @@
+.btn-logout {
+    color: var(--bs-header-icon-color);
+    transition: all 0.4s ease-out;
+
+    &:hover {
+        color: $danger_color;
+    }
+}

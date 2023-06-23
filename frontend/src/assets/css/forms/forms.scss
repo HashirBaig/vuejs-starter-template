@@ -1,0 +1,34 @@
+.form-container {
+    height: fit-content;
+    width: 45%;
+    background-color: white;
+    text-align: center;
+    border-radius: 10px;
+    padding: 40px 30px;
+}
+
+.form,
+form {
+    width: 100%;
+    height: 100%;
+    background-color: inherit;
+}
+
+.label,
+label {
+    background-color: inherit;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: left;
+    margin: 10px 0 0 0;
+    background-color: inherit;
+}
+
+.form-error {
+    color: $danger_color;
+    font-size: 0.8rem;
+}
