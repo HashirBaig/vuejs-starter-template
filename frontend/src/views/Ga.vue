@@ -46,11 +46,12 @@ const onSubmit = async ({ ga }) => {
               <label class="fw-bold">GA
                 <RequiredFieldMark />
               </label>
-              <Field name="ga" type="text" class="form-control rounded-pill" />
+              <Field name="ga" type="text" class="form-control rounded-pill" autocomplete="off" />
               <span class="form-error">{{ errors.ga }}</span>
             </div>
             <div class="form-group">
-              <button class="btn btn-dark mt-2 rounded-pill d-flex align-items-center justify-content-center">
+              <button type="submit" :disabled="isLoading"
+                class="btn btn-dark mt-2 rounded-pill d-flex align-items-center justify-content-center">
                 <Spinner v-if="isLoading" size="sm" color="light" />
                 <span v-if="!isLoading">Confirm</span>
               </button>

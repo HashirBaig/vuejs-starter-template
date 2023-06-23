@@ -25,7 +25,7 @@ const handleFilterSearch = (values) => {
                 </div>
                 <div class="row mt-2">
                     <div class="col-xl-8 my-1">
-                        <Field type="text" name="filterSearch" class="form-control form-control-sm" />
+                        <Field type="text" name="filterSearch" class="form-control form-control-sm" autocomplete="off" />
                     </div>
                     <div class="col-xl-2 my-1">
                         <button type="submit" class="btn btn-dark btn-sm w-100">
