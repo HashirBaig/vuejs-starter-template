@@ -1,7 +1,9 @@
 <script setup>
+import { ref } from 'vue';
 import { useStore } from 'vuex'
 import RequiredFieldMark from '@/components/common/RequiredFieldMark.vue';
 import ImageRef from '@/components/common/ImageRef.vue'
+import Spinner from '@/components/common/Spinner.vue';
 import * as yup from 'yup'
 import { Field, Form } from 'vee-validate'
 
@@ -10,16 +12,21 @@ const schema = yup.object().shape({
 })
 
 const store = useStore()
+const isLoading = ref(false)
 
 const onSubmit = async ({ ga }) => {
   try {
+    isLoading.value = true
     const data = {
       GaCode: ga,
       id: localStorage.id
     }
     await store.dispatch("ga", data)
   } catch (error) {
+    isLoading.value = false
     console.log(error)
+  } finally {
+    isLoading.value = false
   }
 }
 
@@ -43,7 +50,10 @@ const onSubmit = async ({ ga }) => {
               <span class="form-error">{{ errors.ga }}</span>
             </div>
             <div class="form-group">
-              <button class="btn btn-dark mt-2 rounded-pill">Confirm</button>
+              <button class="btn btn-dark mt-2 rounded-pill d-flex align-items-center justify-content-center">
+                <Spinner v-if="isLoading" size="sm" color="light" />
+                <span v-if="!isLoading">Confirm</span>
+              </button>
             </div>
           </Form>
         </div>
