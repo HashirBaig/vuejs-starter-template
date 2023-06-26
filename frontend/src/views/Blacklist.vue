@@ -6,15 +6,14 @@ import FilterSearchView from '@/components/common/FilterSearchView.vue'
 
 
 const playerData = reactive({
-    name: "",
+    site: "",
     match: "",
     selection: "",
 })
 
 
 const handleViewPlayerMatchSelection = (item) => {
-    console.log('item: ', item)
-    playerData.name = item?.name || ""
+    playerData.site = item?.site || ""
     playerData.match = item?.match || ""
     playerData.selection = item?.selection || ""
 }
@@ -80,17 +79,23 @@ const handleViewPlayerMatchSelection = (item) => {
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-xl-12">
-                                <div class="row">
-                                    <div class="col-xl-12">
-                                        <label>Match: </label>
-                                        <h6>{{ playerData?.match }}</h6>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xl-12">
-                                        <label>Selection: </label>
-                                        <h6>{{ playerData?.selection }}</h6>
-                                    </div>
+                                <div class="border rounded">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Match</th>
+                                                <th>Selection</th>
+                                                <th>Site</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>{{ playerData?.match }}</td>
+                                                <td>{{ playerData?.selection }}</td>
+                                                <td>{{ playerData?.site }}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
