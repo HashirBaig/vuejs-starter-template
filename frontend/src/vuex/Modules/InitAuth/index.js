@@ -51,11 +51,6 @@ const initAuthModule = {
                     commit("setName", localStorage.name)
                     commit("setSurname", localStorage.surname)
                     commit("setId", localStorage.id)
-
-                    // Side Navigation State Management
-                    const path = router?.currentRoute?.value?.meta?.title
-                    handleActiveLinkState(path)
-
                 } else {
                     if (router.path === AllRoutesMap.login) {
                         router.push(AllRoutesMap.login)

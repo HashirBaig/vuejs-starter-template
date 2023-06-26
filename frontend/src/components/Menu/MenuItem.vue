@@ -1,5 +1,5 @@
 <script setup>
-import { ref, nextTick } from 'vue';
+import { ref, nextTick, onMounted } from 'vue';
 import { useRouter } from 'vue-router'
 import { handleActiveLinkState } from '@/utils/menu/common.js'
 
@@ -17,7 +17,11 @@ const expanded = ref(false)
 const container = ref(null)
 const containerHeight = ref("0")
 
-
+onMounted(() => {
+    // Side Navigation State Management
+    const path = router?.currentRoute?.value?.meta?.title
+    handleActiveLinkState(path)
+})
 
 const onItemClick = () => {
     if (!data) {
