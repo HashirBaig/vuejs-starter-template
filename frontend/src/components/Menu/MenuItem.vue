@@ -81,7 +81,7 @@ const toggleMenu = () => {
         <div v-show="showChildren" class="items-container" ref="container" :style="{ height: containerHeight }">
 
             <MenuItem v-for="(item, idx) in data" :key="'menu-item-' + item.label + '-' + idx" :label="item.label"
-                :icon="item.icon" :depth="depth + 1" :data="item.children" />
+                :icon="item.icon" :depth="depth + 1" :data="item.children" :href="item.href" />
 
         </div>
     </div>
