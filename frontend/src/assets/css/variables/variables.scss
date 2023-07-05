@@ -1,11 +1,15 @@
 $primary_color: #0092ff;
-$secondary_color: #1C2833;
+$secondary_color: #1c2833;
 $danger_color: #dc3545;
 $success_color: #198754;
 $warning_color: #eeb406;
 $template_color: #2d3791;
-$vsm_bg_color: #D5D7DA;
-$vsm_bg_dark_color: #ABB2B9;
+$vsm_bg_color: #d5d7da;
+$vsm_bg_dark_color: #abb2b9;
 $vsm_bg_darker_color: #81878d;
-$purple_color: #8E44AD;
-$purple_dark_color: #4A235A;
+$purple_color: #8e44ad;
+$purple_dark_color: #4a235a;
+
+$menu_bg: var(--bs-menu-bg);
+$app_header_bg: var(--bs-menu-bg);
+$app_footer_bg: var(--bs-menu-bg);

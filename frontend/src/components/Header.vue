@@ -1,72 +1,63 @@
 <script setup>
-import { ref, onMounted } from "vue";
-import { useStore } from "vuex";
-import Menu from "./Menu/Menu.vue";
+import { ref, onMounted } from "vue"
+import { useStore } from "vuex"
+import Menu from "./Menu/Menu.vue"
 
-const store = useStore();
-const dClass = ref(JSON.parse(localStorage.getItem("dark-mode")));
+const store = useStore()
+const dClass = ref(JSON.parse(localStorage.getItem("dark-mode")))
 
 onMounted(() => {
-  const isDarkMode = localStorage.getItem("dark-mode"); // returns boolean
-  darkMode(isDarkMode);
-});
+  const isDarkMode = localStorage.getItem("dark-mode") // returns boolean
+  darkMode(isDarkMode)
+})
 
 const onChangeTheme = (theme, mode) => {
-  const baseURL = `src/assets/themes/`;
-  const url = `${baseURL}${theme}`;
-  const elementId = "theme-css";
-  const linkElement = document.getElementById(elementId);
-  const cloneLinkElement = linkElement.cloneNode(true);
-  const oldThemeUrl = linkElement.getAttribute("href");
-  const newThemeUrl = linkElement
-    .getAttribute("href")
-    .replace(oldThemeUrl, url);
-  cloneLinkElement.setAttribute("id", elementId + "-clone");
-  cloneLinkElement.setAttribute("href", newThemeUrl);
+  const baseURL = `src/assets/themes/`
+  const url = `${baseURL}${theme}`
+  const elementId = "theme-css"
+  const linkElement = document.getElementById(elementId)
+  const cloneLinkElement = linkElement.cloneNode(true)
+  const oldThemeUrl = linkElement.getAttribute("href")
+  const newThemeUrl = linkElement.getAttribute("href").replace(oldThemeUrl, url)
+  cloneLinkElement.setAttribute("id", elementId + "-clone")
+  cloneLinkElement.setAttribute("href", newThemeUrl)
   cloneLinkElement.addEventListener("load", () => {
-    linkElement.remove();
-    cloneLinkElement.setAttribute("id", elementId);
-  });
-  linkElement.parentNode.insertBefore(
-    cloneLinkElement,
-    linkElement.nextSibling
-  );
-};
-const darkMode = (theme) => {
-  localStorage.setItem("dark-mode", theme);
+    linkElement.remove()
+    cloneLinkElement.setAttribute("id", elementId)
+  })
+  linkElement.parentNode.insertBefore(cloneLinkElement, linkElement.nextSibling)
+}
+const darkMode = theme => {
+  localStorage.setItem("dark-mode", theme)
   if (theme === "true" || theme === true) {
-    dClass.value = theme;
-    onChangeTheme("bootstrapdark.min.css", "dark");
+    dClass.value = theme
+    onChangeTheme("bootstrapdark.min.css", "dark")
   } else if (theme === "false" || theme === false) {
-    dClass.value = theme;
-    onChangeTheme("bootstrap.min.css", "light");
+    dClass.value = theme
+    onChangeTheme("bootstrap.min.css", "light")
   }
-};
-const toggleTheme = (e) => {
-  const theme = e.target.checked;
-  darkMode(theme);
-};
+}
+const toggleTheme = e => {
+  const theme = e.target.checked
+  darkMode(theme)
+}
 
 const handleLogout = () => {
   try {
-    store.dispatch("logout");
+    store.dispatch("logout")
   } catch (error) {
-    console.log(error);
+    console.log(error)
   }
-};
+}
 </script>
 
 <template>
   <header
-    class="fixed-top d-flex align-items-center justify-content-between shadow-sm py-2 px-3 overflow-hidden"
+    class="fixed-top border-bottom d-flex align-items-center justify-content-between shadow-sm py-2 px-3 overflow-hidden"
   >
     <div class="switch-container">
       <label class="switch">
-        <input
-          type="checkbox"
-          @change="toggleTheme"
-          :checked="dClass === 'true' ? true : false"
-        />
+        <input type="checkbox" @change="toggleTheme" :checked="dClass === 'true' ? true : false" />
         <span class="slider"></span>
       </label>
     </div>

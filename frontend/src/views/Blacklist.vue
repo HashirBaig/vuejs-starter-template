@@ -19,7 +19,7 @@ const handleViewPlayerMatchSelection = item => {
 </script>
 
 <template>
-  <div class="border rounded shadow-sm mb-5">
+  <div class="card rounded shadow-sm mb-5">
     <div class="w-100 px-4 py-3">
       <FilterSearchView />
 
