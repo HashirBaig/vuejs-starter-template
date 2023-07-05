@@ -1,13 +1,13 @@
-import axios from "axios";
-import * as apiURLs from './apiURLs'
-import environment from '@/config/environment'
+import axios from "axios"
+import * as apiURLs from "./apiURLs"
+import environment from "@/config/environment"
 
 const baseConfig = {
-    baseURL: `${environment.API_URL}`,
-    responseType: "json",
-    headers: {
-        "Content-Type": "application/json",
-    }
+  baseURL: `${environment.API_URL}`,
+  responseType: "json",
+  headers: {
+    "Content-Type": "application/json",
+  },
 }
 
 // Basic configuration for HTTP calls
@@ -42,10 +42,10 @@ const api = axios.create(baseConfig)
 
 // --- USERS --- //
 export async function loginUser(credentials) {
-    return api.post(`${apiURLs.USERS}/Login`, credentials)
+  return api.post(`${apiURLs.USERS}/Login`, credentials)
 }
 export async function gaUser(data) {
-    return api.post(`${apiURLs.USERS}/Ga`, data)
+  return api.post(`${apiURLs.USERS}/Ga`, data)
 }
 
 export default api

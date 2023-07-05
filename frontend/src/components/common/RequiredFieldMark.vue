@@ -1,6 +1,5 @@
-<script setup>
-</script>
+<script setup></script>
 
 <template>
-    <span class="text-danger">*</span>
+  <span class="text-danger">*</span>
 </template>

@@ -1,8 +1,6 @@
 <script setup>
-
-import { onMounted } from 'vue';
-import { useStore } from 'vuex';
-
+import { onMounted } from "vue"
+import { useStore } from "vuex"
 
 const store = useStore()
 
@@ -14,7 +12,6 @@ onMounted(() => {
     }
   })
 })
-
 </script>
 
 <template>
