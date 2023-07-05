@@ -1,9 +1,9 @@
 const dev = {
-    API_URL: "https://development.url/api/",
+  API_URL: "https://localhost:7142/api/",
 }
 
 const prod = {
-    API_URL: "https://prodcution.url/api/",
+  API_URL: "https://prodcution.url/api/",
 }
 
 const config = process.env.NODE_ENV === "production" ? prod : dev
