@@ -1,10 +1,10 @@
 <script setup>
-import { reactive } from "vue"
-
+import { reactive, ref } from "vue"
+import { Field, Form } from "vee-validate"
 import { blTableData, blTableHeader } from "@/utils/common.js"
-import FilterSearchView from "@/components/common/FilterSearchView.vue"
 import ViewPlayerSelectionModal from "@/components/modals/ViewPlayerSelectionModal.vue"
 
+const isLoading = ref(false)
 const playerData = reactive({
   site: "",
   match: "",
@@ -16,12 +16,45 @@ const handleViewPlayerMatchSelection = item => {
   playerData.match = item?.match || ""
   playerData.selection = item?.selection || ""
 }
+
+const initSearch = values => {
+  try {
+    isLoading.value = true
+    console.log("form-values: ", values)
+  } catch (error) {
+    isLoading.value = false
+    console.log(error)
+  } finally {
+    isLoading.value = false
+  }
+}
 </script>
 
 <template>
   <div class="card rounded shadow-sm mb-5">
     <div class="w-100 px-4 py-3">
-      <FilterSearchView />
+      <div class="row my-4">
+        <Form @submit="initSearch" v-slot="{ errors }">
+          <div class="col-xl-12">
+            <div class="row">
+              <div class="col-xl-12">
+                <h5>Search Customer</h5>
+              </div>
+            </div>
+            <div class="row mt-2">
+              <div class="col-xl-8 my-1">
+                <Field type="text" name="filterSearch" class="form-control form-control-sm" autocomplete="off" />
+              </div>
+              <div class="col-xl-2 my-1">
+                <button type="submit" class="btn btn-dark btn-sm w-100">
+                  <i class="fas fa-search mx-2"></i>
+                  Search
+                </button>
+              </div>
+            </div>
+          </div>
+        </Form>
+      </div>
 
       <div class="row my-4">
         <div class="col-xl-12">
@@ -36,7 +69,7 @@ const handleViewPlayerMatchSelection = item => {
                       </th>
                     </tr>
                   </thead>
-                  <tbody>
+                  <tbody v-if="!isLoading">
                     <tr v-for="(item, idx) in blTableData" :key="'customer-' + item.name + '-' + idx">
                       <td>{{ idx + 1 }}</td>
                       <td>{{ item?.site || "-" }}</td>
@@ -62,8 +95,10 @@ const handleViewPlayerMatchSelection = item => {
                   </tbody>
                 </table>
               </div>
-
               <!-- pagination -->
+            </div>
+            <div v-if="isLoading" class="text-center">
+              <Spinner size="md" color="primary" />
             </div>
           </div>
         </div>
