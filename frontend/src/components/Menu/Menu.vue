@@ -4,6 +4,26 @@ import { AllRoutesMap } from "@/router/routesConfig"
 
 import MenuItem from "./MenuItem.vue"
 
+/*
+{
+    label: "Dashboard",
+    icon: "fas fa-th",
+    href: "/",
+  },
+  {
+    label: "Blacklist",
+    icon: "fas fa-times",
+    href: "/blacklist",
+    children: [
+      {
+        label: "Users",
+        icon: "fas fa-times",
+        href: "/users"
+      }
+    ]
+  },
+*/
+
 const menuTree = reactive([
   {
     label: "Dashboard",

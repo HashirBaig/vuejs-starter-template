@@ -1,27 +1,38 @@
 <script setup>
+import { ref } from "vue"
 import * as yup from "yup"
 import { Field, Form } from "vee-validate"
 
 import RequiredFieldMark from "@/components/common/RequiredFieldMark.vue"
-
-const { id } = defineProps({
-  id: String,
-})
+import Spinner from "@/components/common/Spinner.vue"
 
 const schema = yup.object().shape({
   customer_code: yup.string().required("Customer code is required"),
   description: yup.string(),
 })
 
+const { id } = defineProps({
+  id: String,
+})
+const isLoading = ref(false)
+
 /* Close modals after submitting data */
 const closeAddToBlacklistModal = () => {
   document.getElementById("close-add-to-blacklist-modal").click()
 }
 
-const handleAddToBlacklist = (values, actions) => {
-  console.log("form-values: ", values)
-  actions.resetForm()
-  closeAddToBlacklistModal()
+const handleAddToBlacklist = async (values, actions) => {
+  try {
+    isLoading.value = true
+    console.log("form-values: ", values)
+    actions.resetForm()
+    closeAddToBlacklistModal()
+  } catch (error) {
+    isLoading.value = false
+    console.log(error)
+  } finally {
+    isLoading.value = false
+  }
 }
 </script>
 
@@ -50,7 +61,7 @@ const handleAddToBlacklist = (values, actions) => {
                     >Customer Code
                     <RequiredFieldMark />
                   </label>
-                  <Field class="form-control form-control-sm" type="text" name="customer_code" />
+                  <Field class="form-control form-control-sm" type="text" name="customer_code" autocomplete="off" />
                   <span class="form-error">{{ errors.customer_code }}</span>
                 </div>
                 <div class="form-group">
@@ -64,7 +75,10 @@ const handleAddToBlacklist = (values, actions) => {
             <button type="button" id="close-add-to-blacklist-modal" class="btn btn-danger" data-bs-dismiss="modal">
               Close
             </button>
-            <button type="submit" class="btn btn-primary">Add</button>
+            <button type="submit" class="btn btn-primary" :disabled="isLoading">
+              <Spinner v-if="isLoading" size="sm" color="light" />
+              <span v-if="!isLoading">Add</span>
+            </button>
           </div>
         </Form>
       </div>
