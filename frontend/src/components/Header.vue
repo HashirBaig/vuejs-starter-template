@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted } from "vue"
+import { ref, onMounted, watch } from "vue"
 import { useStore } from "vuex"
 import Menu from "./Menu/Menu.vue"
 
@@ -60,6 +60,13 @@ const handleLogout = () => {
         <input type="checkbox" @change="toggleTheme" :checked="dClass === 'true' ? true : false" />
         <span class="slider"></span>
       </label>
+      <i
+        class="fas"
+        :class="{
+          'fa-sun text-warning': dClass === 'true' || dClass === true,
+          'fa-moon text-dark': dClass === 'false' || dClass === false,
+        }"
+      ></i>
     </div>
 
     <div class="btn-logout" title="Logout" @click="handleLogout">
@@ -122,6 +129,7 @@ input[type="checkbox"]:checked + .slider:before {
 .switch-container {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 12px;
+  transition: all 0.4s ease;
 }
 </style>
