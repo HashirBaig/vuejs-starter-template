@@ -3,6 +3,7 @@ import { reactive, ref } from "vue"
 import { Field, Form } from "vee-validate"
 import { blTableData, blTableHeader } from "@/utils/common.js"
 import ViewPlayerSelectionModal from "@/components/modals/ViewPlayerSelectionModal.vue"
+import Spinner from "@/components/common/Spinner.vue"
 
 const isLoading = ref(false)
 const playerData = reactive({
@@ -46,7 +47,7 @@ const initSearch = values => {
                 <Field type="text" name="filterSearch" class="form-control form-control-sm" autocomplete="off" />
               </div>
               <div class="col-xl-2 my-1">
-                <button type="submit" class="btn btn-dark btn-sm w-100">
+                <button type="submit" class="btn btn-dark btn-sm w-100" :disabled="isLoading">
                   <i class="fas fa-search mx-2"></i>
                   Search
                 </button>

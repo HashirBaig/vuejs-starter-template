@@ -36,7 +36,7 @@ const initSearch = values => {
                 <Field type="text" name="filterSearch" class="form-control form-control-sm" autocomplete="off" />
               </div>
               <div class="col-xl-2 my-1">
-                <button type="submit" class="btn btn-dark btn-sm w-100">
+                <button type="submit" class="btn btn-dark btn-sm w-100" :disabled="isLoading">
                   <i class="fas fa-search mx-2"></i>
                   Search
                 </button>
@@ -47,6 +47,7 @@ const initSearch = values => {
                   class="btn btn-primary btn-sm w-100"
                   data-bs-toggle="modal"
                   data-bs-target="#addToBlacklistModal"
+                  :disabled="isLoading"
                 >
                   <i class="fas fa-plus mx-2"></i>
                   Add
