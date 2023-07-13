@@ -27,7 +27,7 @@ import MenuItem from "./MenuItem.vue"
 const menuTree = reactive([
   {
     label: "Dashboard",
-    icon: "fas fa-th",
+    icon: "fas fa-th-large",
     href: AllRoutesMap.home,
   },
   {
