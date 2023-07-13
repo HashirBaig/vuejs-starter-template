@@ -7,7 +7,7 @@ const store = useStore()
 const dClass = ref(JSON.parse(localStorage.getItem("dark-mode")))
 
 onMounted(() => {
-  const isDarkMode = localStorage.getItem("dark-mode") // returns boolean
+  const isDarkMode = localStorage.getItem("dark-mode") || false // returns boolean
   darkMode(isDarkMode)
 })
 
