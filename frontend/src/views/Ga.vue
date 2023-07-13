@@ -48,11 +48,7 @@ const onSubmit = async ({ ga }) => {
               <span class="form-error">{{ errors.ga }}</span>
             </div>
             <div class="form-group">
-              <button
-                type="submit"
-                :disabled="isLoading"
-                class="btn btn-dark mt-2 rounded-pill d-flex align-items-center justify-content-center"
-              >
+              <button type="submit" :disabled="isLoading" class="btn btn-dark mt-2 rounded-pill">
                 <Spinner v-if="isLoading" size="sm" color="light" />
                 <span v-if="!isLoading">Confirm</span>
               </button>

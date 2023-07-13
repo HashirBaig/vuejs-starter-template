@@ -8,5 +8,7 @@ const { color, size } = defineProps({
 </script>
 
 <template>
-  <div class="spinner-border" :class="getSpinnerColor(color)" :style="getSpinnerSize(size)" role="status"></div>
+  <div class="d-flex align-items-center justify-content-center">
+    <div class="spinner-border" :class="getSpinnerColor(color)" :style="getSpinnerSize(size)" role="status"></div>
+  </div>
 </template>

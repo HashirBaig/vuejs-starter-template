@@ -84,9 +84,8 @@ const initSearch = values => {
               </div>
               <!-- pagination -->
             </div>
-            <div v-if="isLoading" class="text-center">
-              <Spinner size="md" color="primary" />
-            </div>
+
+            <Spinner v-if="isLoading" size="md" color="primary" />
           </div>
         </div>
       </div>

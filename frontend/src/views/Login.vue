@@ -63,11 +63,7 @@ const onSubmit = async ({ email, password }) => {
               <span class="form-error">{{ errors.password }}</span>
             </div>
             <div class="form-group">
-              <button
-                type="submit"
-                :disabled="isLoading"
-                class="btn btn-dark rounded-pill mt-2 d-flex align-items-center justify-content-center"
-              >
+              <button type="submit" :disabled="isLoading" class="btn btn-dark rounded-pill mt-2">
                 <Spinner v-if="isLoading" size="sm" color="light" />
                 <span v-if="!isLoading">Login</span>
               </button>
