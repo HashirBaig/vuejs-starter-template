@@ -41,15 +41,21 @@ const onSubmit = async ({ email, password }) => {
 
           <Form @submit="onSubmit" :validation-schema="schema" v-slot="{ errors }">
             <div class="form-group">
-              <label class="fw-bold"
+              <label class="form-label fw-bold"
                 >Email
                 <RequiredFieldMark />
               </label>
-              <Field name="email" id="email" type="text" class="form-control rounded-pill" autocomplete="off" />
+              <Field
+                name="email"
+                id="email"
+                type="text"
+                class="form-control form-input rounded-pill"
+                autocomplete="off"
+              />
               <span class="form-error">{{ errors.email }}</span>
             </div>
             <div class="form-group">
-              <label class="fw-bold"
+              <label class="form-label fw-bold"
                 >Password
                 <RequiredFieldMark />
               </label>
@@ -57,7 +63,7 @@ const onSubmit = async ({ email, password }) => {
                 name="password"
                 id="password"
                 type="password"
-                class="form-control rounded-pill"
+                class="form-control form-input rounded-pill"
                 autocomplete="off"
               />
               <span class="form-error">{{ errors.password }}</span>

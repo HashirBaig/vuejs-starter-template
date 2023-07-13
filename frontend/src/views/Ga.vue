@@ -40,11 +40,11 @@ const onSubmit = async ({ ga }) => {
 
           <Form @submit="onSubmit" :validation-schema="schema" v-slot="{ errors }">
             <div class="form-group">
-              <label class="fw-bold"
+              <label class="form-label fw-bold"
                 >GA
                 <RequiredFieldMark />
               </label>
-              <Field name="ga" type="text" class="form-control rounded-pill" autocomplete="off" />
+              <Field name="ga" type="text" class="form-control form-input rounded-pill" autocomplete="off" />
               <span class="form-error">{{ errors.ga }}</span>
             </div>
             <div class="form-group">
